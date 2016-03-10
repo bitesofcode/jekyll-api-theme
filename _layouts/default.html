@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+    {% include sidebar.html %}
+
+    <!-- background for the documentation portion -->
+    <div id="background">
+        <div id="background-actual"></div>
+    </div>
+
+    <!-- documentation content -->
+    <div id="content">
+        {{ content }}
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+<div id="sidebar">
+    <nav role="navigation" class="sidebar-nav">
+        {% for post in site.posts reversed %}
+        {% assign loopindex = forloop.index | modulo: 2 %}
+            {% if (post.section) %}
+
+                {% if (lastsection == nil or lastsection != post.section) %}
+                    {% if (lastsection) %}
+                    </ul>
+                    {% endif %}
+                <h5 class="sidebar-nav-heading">{{ post.section }}</h5>
+                <ul class="sidebar-nav-items">
+                {% assign lastsection = post.section %}
+                {% endif %}
+
+                <li>
+                    <a href="#{{ post.title }}" class="sidebar-nav-item">{{ post.title }}</a>
+                </li>
+
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </nav>
+</div>

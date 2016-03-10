@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% for post in site.posts reversed %}
+{% assign loopindex = forloop.index | modulo: 2 %}
+{% if loopindex == 1 %}
+<div class="method-group">
+    <section class="method">
+        <div class="method-area">
+            <div class="method-copy">
+                <div class="method-copy-padding">
+                    <h1><a name="{{ post.title }}"></a>{{ post.title }}</h1>
+                    {{ post.content }}
+                </div>
+            </div>
+{% else %}
+            <div class="method-example">
+                <div class="method-example-part">
+                    <h1>{{ post.title }}</h1>
+                    {{ post.content }}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endif %}
+{% endfor %}
